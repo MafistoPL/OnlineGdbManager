@@ -7,11 +7,8 @@ class Program
 {
     static async Task Main(string[] args)
     {
-        string targetFolderName = "4_rozdzial";
-        string language = "c";
-        string projectName = "Test";
         string cookie = args[0];
-        const string getFoldersUrl = "https://www.onlinegdb.com/myfiles/folders";
+        const string getFoldersUrl = "http://localhost:8090";
 
         using var client = new HttpClient();
         
