@@ -25,7 +25,15 @@ class Program
         try
         {
             // First request: get the folder list
-            await client.GetAsync(debugServerUrl);
+            try
+            {
+                await client.GetAsync(debugServerUrl);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Debug server not running.");
+            }
+
             HttpResponseMessage folderResponse = await client.GetAsync(getFoldersUrl);
             folderResponse.EnsureSuccessStatusCode();
 
