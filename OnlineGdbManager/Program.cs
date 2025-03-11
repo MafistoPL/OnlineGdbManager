@@ -8,7 +8,8 @@ class Program
     static async Task Main(string[] args)
     {
         string cookie = args[0];
-        const string getFoldersUrl = "http://localhost:8090";
+        const string debugServerUrl = "http://localhost:8090";
+        const string getFoldersUrl = "https://www.onlinegdb.com/myfiles/folders";
 
         using var client = new HttpClient();
         
@@ -24,6 +25,7 @@ class Program
         try
         {
             // First request: get the folder list
+            await client.GetAsync(debugServerUrl);
             HttpResponseMessage folderResponse = await client.GetAsync(getFoldersUrl);
             folderResponse.EnsureSuccessStatusCode();
 
