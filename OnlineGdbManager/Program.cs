@@ -8,8 +8,8 @@ class Program
     static async Task Main(string[] args)
     {
         string cookie = args[0];
-        const string debugServerUrl = "http://localhost:8090";
-        const string getFoldersUrl = "https://www.onlinegdb.com/myfiles/folders";
+        const string serviceUrl = "http://localhost:8090";
+        const string getFoldersUrl = $"{serviceUrl}/myfiles/folders";
 
         using var client = new HttpClient();
         
@@ -27,7 +27,7 @@ class Program
             // First request: get the folder list
             try
             {
-                await client.GetAsync(debugServerUrl);
+                await client.GetAsync(serviceUrl);
             }
             catch (Exception e)
             {
